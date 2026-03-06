@@ -52,19 +52,25 @@ export const Sidebar = () => {
         </Link>
 
         <Link 
-          href="#" 
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 active:bg-white/10 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white/10"
+          href="/analytics" 
+          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+            pathname === '/analytics' ? 'bg-primary/20 text-primary font-semibold' : 'text-slate-400 hover:bg-white/5 active:bg-white/10'
+          }`}
         >
           <span className="material-symbols-outlined">analytics</span>
           <span>Analytics</span>
         </Link>
         <Link 
-          href="#" 
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 active:bg-white/10 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white/10"
+          href="/templates" 
+          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+            pathname === '/templates' ? 'bg-primary/20 text-primary font-semibold' : 'text-slate-400 hover:bg-white/5 active:bg-white/10'
+          }`}
         >
-          <span className="material-symbols-outlined">description</span>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: pathname === '/templates' ? "'FILL' 1" : "'FILL' 0" }}>description</span>
           <span>Templates</span>
         </Link>
+
+
       </nav>
 
       <div className="p-4 mt-auto">
