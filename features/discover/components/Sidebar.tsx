@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
+  const pathname = usePathname();
+
   return (
-    <aside className="w-[240px] bg-sidebar-dark border-r border-primary/10 flex flex-col fixed h-full overflow-y-auto">
+    <aside className="w-[240px] bg-sidebar-dark border-r border-primary/10 flex flex-col fixed h-full overflow-y-auto z-50">
       <div className="p-6 flex items-center gap-3">
         <div className="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
           <span className="material-symbols-outlined font-bold">rocket_launch</span>
@@ -17,28 +22,35 @@ export const Sidebar = () => {
       <nav className="flex-1 px-4 space-y-2 mt-4">
         <Link 
           href="/discover" 
-          className="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/20 text-primary font-semibold transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+            pathname === '/discover' ? 'bg-primary/20 text-primary font-semibold' : 'text-slate-400 hover:bg-white/5 active:bg-white/10'
+          }`}
         >
           <span className="material-symbols-outlined">explore</span>
           <span>Discover</span>
         </Link>
         <Link 
-          href="#" 
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 active:bg-white/10 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white/10"
+          href="/pipeline" 
+          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+            pathname === '/pipeline' ? 'bg-primary/20 text-primary font-semibold' : 'text-slate-400 hover:bg-white/5 active:bg-white/10'
+          }`}
         >
           <span className="material-symbols-outlined">view_kanban</span>
           <span>Pipeline</span>
         </Link>
         <Link 
-          href="#" 
-          className="flex items-center justify-between px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 active:bg-white/10 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white/10"
+          href="/follow-up" 
+          className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+            pathname === '/follow-up' ? 'bg-primary/20 text-primary font-semibold' : 'text-slate-400 hover:bg-white/5 active:bg-white/10'
+          }`}
         >
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined">chat_bubble</span>
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: pathname === '/follow-up' ? "'FILL' 1" : "'FILL' 0" }}>chat_bubble</span>
             <span>Follow-ups</span>
           </div>
-          <span className="bg-primary text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">12</span>
+          <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">2</span>
         </Link>
+
         <Link 
           href="#" 
           className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-white/5 active:bg-white/10 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white/10"
