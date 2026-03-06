@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #f45c25;
+  --color-brand-coral: #ff6b6b;
+  --color-background-light: #f8f5f5;
+  --color-background-dark: #0D0A0A;
+  --color-card-dark: #161010;
+  --color-border-dark: #2E2020;
+  --color-input-dark: #1E1515;
+  --color-sidebar-dark: #161010;
+  --color-accent-dark: #1E1515;
+
+  --font-display: "Inter", sans-serif;
+  --font-syne: "Syne", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+
+
 :root {
-  --background: #ffffff;
+  --background: var(--color-background-light);
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: var(--color-background-dark);
+  --foreground: #ededed;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display);
 }
+
+.bg-noise {
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDPDoFthH4sLRbslzH3r3mV8TiF-V3-XLYiPxLuMGAiMs6_8gZl-2VmqBmJWc2DwO4s7CNxoxCDvlvRMuu3Tk563CBDSSgVazoTT5zAHP6x1SF_qUC1Pvitpz_3h2_co4jfiyd8Gq56oSThCQmZelsJaR10KMESEEah9XGIPNpvjWi79myQ5m5Sfpic0CKEwRqYpa3-9pcLKBQn9eVwHrY2x-iqtNZqVgq7sMAjA8eCMZJ8Yl1RQasLmXSoJdmFBLAK7395g1NqSiM);
+  opacity: 0.03;
+}
+
+.coral-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 107, 107, 0.08) 0%,
+    transparent 70%
+  );
+}
+
